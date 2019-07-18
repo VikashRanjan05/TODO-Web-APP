@@ -99,6 +99,7 @@ function AppModel() {
     });
   };
 
+  //show Completed the data from TODO
   this.showCompletedTodo = function() {
     var self = this;
     $.ajax({
@@ -114,6 +115,7 @@ function AppModel() {
     });
   };
 
+  //show incompleted the data from TODO
   this.showIncompletedTodo = function() {
     var self = this;
     $.ajax({

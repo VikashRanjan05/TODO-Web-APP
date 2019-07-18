@@ -1,6 +1,11 @@
 function AppController() {
+  //call Appmodel from model.js
   this.model = new AppModel();
+
+  //load the db in UI
   this.model.showTodo();
+
+  //call Toggleitem from model.js
   this.toggle = new TodoItem();
 
   this.addTodo = function(caption, isCompleted) {
@@ -8,8 +13,11 @@ function AppController() {
     this.pre_render();
   };
 
+  //Event handler for index.html
   this.attachEventHandlers = function() {
     var self = this;
+
+    //event handler for Add TODO form from index.html
     $("#input-form").submit(function(event) {
       event.preventDefault();
       var inputDOM = $("#input");
@@ -22,23 +30,27 @@ function AppController() {
       }
     });
 
+    //event handler for Show Completed TODO
     var inx = 0;
     $("#done").click(function() {
       self.model.showCompletedTodo();
       self.pre_render();
     });
 
+    //event handler for Show Incompleted TODO
     $("#undone").click(function() {
       self.model.showIncompletedTodo();
       self.pre_render();
     });
 
+    //event handler for Show_ALL/clear_filter TODO UI
     $("#clear_filter").click(function() {
       self.model.showTodo();
       self.pre_render();
     });
   };
 
+  //funtion to render the UI list from fetched DB
   this.render = function() {
     var self = this;
     var list = $("#list");
@@ -58,6 +70,7 @@ function AppController() {
         class: "licheck"
       });
 
+      //change status iscompleted Fuction
       checkstatus.click(
         function(id, i) {
           self.model.toggle(id, i);
@@ -65,6 +78,7 @@ function AppController() {
         }.bind(null, index, i)
       );
 
+      //toggle UI for status change ::iscompleted
       if (todoItem.isCompleted == 1) {
         checkstatus.prop("checked", true);
         tododata.css({ "text-decoration": "line-through" });
@@ -79,6 +93,7 @@ function AppController() {
         class: "libutton"
       });
 
+      //call funtion for delete TODO item
       deleteBtn.click(
         function(id, i) {
           self.model.removeTodo(id, i);
@@ -86,6 +101,7 @@ function AppController() {
         }.bind(null, index, i)
       );
 
+      //append all element in li
       li.append("<div>");
       li.append(checkstatus);
       li.append("</div>");
@@ -96,7 +112,10 @@ function AppController() {
       li.append(deleteBtn);
       li.append("</div>");
 
+      //update list:: list
       $("#list").append(li);
+
+      //edit TODO item from UI
       tododata.dblclick(
         function(index, li, todoCollection) {
           var previous = todoCollection[index]["caption"];
@@ -113,6 +132,8 @@ function AppController() {
             class: "libutton"
           });
           li.append(update);
+
+          //call Function to edit TODO item
           update.click(
             function(i) {
               var id = todoCollection[index]["id"];
@@ -128,6 +149,7 @@ function AppController() {
 
   this.attachEventHandlers();
 
+  //pre_render function to call RENDER() untill all the Ajax funtion executed
   this.pre_render = function() {
     var self = this;
     $(document).ajaxStop(function() {
