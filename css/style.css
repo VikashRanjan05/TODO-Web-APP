@@ -1,0 +1,173 @@
+body {
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f9f5f5;
+  margin: 0;
+  overflow: hidden;
+}
+h1 {
+  width: 100%;
+  font-size: 100px;
+  font-weight: 75;
+  text-align: center;
+  color: #decacb;
+}
+.author {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 75;
+  text-align: center;
+  color: #b6a6a7;
+}
+.author1 {
+  width: 100%;
+  font-size: 10px;
+  font-weight: 75;
+  text-align: center;
+  color: #b6a6a7;
+}
+.flex {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.flex > div {
+  margin: 0;
+
+  padding: 0;
+}
+.bottom_nav {
+  height: 40px;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.bottom_nav > div {
+  width: 100%;
+  text-align: center;
+}
+button {
+  height: 50px;
+  width: 100%;
+  border: 3px solid white;
+  background: white;
+  text-align: center;
+  color: #75797e;
+  font-size: 15px;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  color: #75797e;
+
+  height: 50px;
+}
+.search:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.searchTerm {
+  width: 100%;
+  border: 0px solid white;
+  border-right: none;
+  padding-left: 20px;
+  height: 20px;
+  background: white;
+  outline: none;
+  font-size: 15px;
+  color: #75797e;
+  height: 48px;
+}
+
+.searchTerm:focus {
+  color: #75797e;
+}
+
+.searchButton {
+  width: 50px;
+  height: 50px;
+  border: 3px solid white;
+  background: white;
+  text-align: center;
+  color: #75797e;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.card {
+  background-color: white;
+  width: 40%;
+  height: 410px;
+  margin: auto;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee,
+    0 10px 1px -4px rgba(0, 0, 0, 0.15), 0 20px 0 -10px #eee,
+    0 20px 1px -9px rgba(0, 0, 0, 0.15);
+}
+.card:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 10px 0 -5px #eee,
+    0 10px 1px -4px rgba(0, 0, 0, 0.2), 0 20px 0 -10px #eee,
+    0 20px 1px -9px rgba(0, 0, 0, 0.2);
+}
+.container {
+  padding: 20px 15px;
+}
+.todoBox {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  /* box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2); */
+  padding: 20px;
+}
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+li {
+  background: #f2f2f2;
+  font-size: 20px;
+  height: 60px;
+  display: flex;
+}
+li:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+li .libutton {
+  border: 3px solid #f2f2f2;
+  background: #f2f2f2;
+  text-align: center;
+  color: #75797e;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: auto;
+  font-weight: 75;
+}
+
+li .litext {
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-left: 20px;
+
+  font-size: 25px;
+  font-weight: 60;
+}
+li .licheck {
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  margin-right: 0px;
+  margin-left: 15px;
+  border-radius: 50%;
+  background: white;
+  vertical-align: middle;
+  border: 0px solid #dcdcdc;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.licheck:checked {
+  background-color: #6d6f6f;
+}
