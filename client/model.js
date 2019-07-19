@@ -42,6 +42,10 @@ function AppModel() {
       },
       success: function(data) {
         self.todoCollection.splice(i, 1);
+      },
+      error: function(data) {
+        console.log(data);
+        self.errorlog(data);
       }
     });
   };
@@ -57,7 +61,16 @@ function AppModel() {
         caption: new_caption
       },
       success: function(data) {
-        self.todoCollection[i].caption = new_caption;
+        var res = JSON.parse(data);
+        var log = res.error;
+        if (log == true) {
+          console.log(res.data);
+        } else {
+          self.todoCollection[i].caption = new_caption;
+        }
+      },
+      error: function(data) {
+        self.errorlog(data);
       }
     });
   };
@@ -129,5 +142,12 @@ function AppModel() {
         console.log(self.todoCollection);
       }
     });
+  };
+
+  //handel ajax error
+  this.errorlog = function(data) {
+    var errorMsg = data.statusText;
+    var errorStatus = data.status;
+    console.log(errorMsg + " " + errorStatus);
   };
 }

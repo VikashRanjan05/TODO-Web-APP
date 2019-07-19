@@ -5,11 +5,12 @@ include 'response.php';
 
 $id=$_POST['id'];
 
-$sql = "DELETE FROM `todoitem` WHERE id=$id";
+$sql = "DELETE FROM `todoitems` WHERE id=$id";
 
 
 if ($conn->query($sql) === TRUE) {
     echo json_encode(successResponse("Deleted"));
 } else {
-    echo json_encode(errorResponse("Error"));}
+    header("HTTP/1.1 500");
+    echo json_encode(errorResponse(mysqli_error($conn)));}
 ?>
