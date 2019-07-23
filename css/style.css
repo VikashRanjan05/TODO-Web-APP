@@ -171,3 +171,16 @@ li .licheck {
 .licheck:checked {
   background-color: #6d6f6f;
 }
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  .card {
+    width: 80%;
+  }
+  body {
+    overflow: auto;
+  }
+  h1 {
+    font-size: 50px;
+  }
+}

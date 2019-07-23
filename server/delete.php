@@ -3,9 +3,9 @@
 include 'config/connection.php';
 include 'response.php';
 
-$id=$_POST['id'];
+$id=$_GET['id'];
 
-$sql = "DELETE FROM `todoitems` WHERE id=$id";
+$sql = "DELETE FROM todoitem WHERE id='$id'";
 
 
 if ($conn->query($sql) === TRUE) {

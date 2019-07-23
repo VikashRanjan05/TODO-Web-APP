@@ -35,17 +35,9 @@ function AppModel() {
   this.removeTodo = function(id, i) {
     var self = this;
     $.ajax({
-      type: "POST",
-      url: "server/delete.php",
-      data: {
-        id: id
-      },
+      url: "server/delete.php?id=" + id,
       success: function(data) {
         self.todoCollection.splice(i, 1);
-      },
-      error: function(data) {
-        console.log(data);
-        self.errorlog(data);
       }
     });
   };
